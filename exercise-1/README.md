@@ -4,7 +4,8 @@ NOTE: Be sure to have Node.JS installed.
 To install it webpack globally, open a new terminal and type:
 ```
 $ npm install webpack -g
-```.
+```
+
 # Exercise 1:
 - Clone this repository
 - Create a new file with some `Hello world` stuff in plain javascript syntax. For example:
