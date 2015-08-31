@@ -7,15 +7,26 @@ $ npm install webpack -g
 ```
 # Exercise 1.1:
 - Clone this repository
-- Create a new file with some `Hello world` stuff in plain javascript syntax
-- Save it as `entry.js`
+- Create a new file with some `Hello world` stuff in plain javascript syntax. For example:
+```
+console.log("hello, world!");
+```
+- Save the file as `entry.js`
 - Run:
+```
+$ node entry.js
+```
+- Now let's create another file, but as a module:
+```
+export default "bye, world!";
+```
+- Then, edit the `entry.js` file and import the newly created module as follows:
+```
+import bye from `bye`;
 
+console.log(bye);
 ```
-$ webpack ./entry.js bundle.js
-```
-- It should create a `bundle.js` file showing an output in the screen similar to this:
-```
+
 Version: webpack 1.11.0
 Time: 60ms
     Asset     Size  Chunks             Chunk Names
