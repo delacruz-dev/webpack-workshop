@@ -7,7 +7,6 @@ $ npm install webpack -g
 ```
 
 # Exercise 1:
-- Clone this repository
 - Create a new file with some `Hello world` stuff in plain javascript syntax. For example:
 ```
 console.log("hello, world!");
