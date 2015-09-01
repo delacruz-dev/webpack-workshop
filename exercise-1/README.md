@@ -40,5 +40,6 @@ chunk    {0} bundle.js (main) 28 bytes [rendered]
     [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes {0} [built]
 ```
 - Let's try it in a browser. Create a html file and add a reference to the generated `bundle.js` file.
-- Open it in a browser and enjoy your first hello world bundle with webpack!
+- Change the `console.log`sentence with a `document.write`to print the message in the DOM and generate the bundle again.
+- Open the html file in a browser and enjoy your first hello world bundle with webpack!
 - Commit your changes
