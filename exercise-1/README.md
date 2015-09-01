@@ -1,45 +1,47 @@
 # Exercise 1: Basic bundling
 
-- Create a new file with some `Hello world` stuff in plain javascript syntax. For example:
+1. Create a new file with some `Hello world` stuff in plain javascript syntax. For example:
 ```
 console.log('hello, world!');
 ```
-- Save the file as `entry.js`
-- Run:
+2. Save the file as `entry.js`
+3. Run:
 ```
 $ node entry.js
 ```
-- Now let's create another file, but as a module:
-```
+4. Now let's create another file, but as a module:
+```javascript
 module.exports = 'bye, world!';
 ```
 - Then, edit the `entry.js` file and import the newly created module as follows:
-```
+```javascript
 var bye = require('./second.js');
 
 console.log(bye);
 ```
-- Now that we have an entry point for our app and a module, we need to create a bundle to make it available for the browser. That's where webpack comes to help. Let's create our first bundle with:
+5. Now that we have an entry point for our app and a module, we need to create a bundle to make it available for the browser. That's where webpack comes to help. Let's create our first bundle with:
 ```
 $ webpack entry.js bundle.js
 ```
-- You should see in your terminal the following output and a `bundle.js` file should have been created:
+6. You should see in your terminal the following output and a `bundle.js` file should have been created:
 ```
 Version: webpack 1.11.0
 Time: 60ms
     Asset     Size  Chunks             Chunk Names
 bundle.js  1.42 kB       0  [emitted]  main
 chunk    {0} bundle.js (main) 28 bytes [rendered]
-    [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes {0} [built]
+    [0] ./projects/workshop-webpack/entry.js 28 bytes {0} [built]
 ```
-- Let's try it in a browser. Create a html file and add a reference to the generated `bundle.js` file.
-- Change the `console.log('Hello world')`sentence fot
+
+## Let's try it in the browser
+1. Create a html file and add a reference to the generated `bundle.js` file.
+2. Change the `console.log(bye)` sentence for
 
 ```javascript
 var element = document.createElement('h3');
-element.innerHTML = 'Hello world';
+element.innerHTML = bye;
 document.appendChild(element);
 ```
 
-to print the message in the DOM and generate the bundle again.
-- Open the html file in a browser and enjoy your first hello world bundle with webpack!
+3. Generate the bundle again
+4. Open the html file in a browser and enjoy your first hello world bundle with webpack!
