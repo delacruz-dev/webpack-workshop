@@ -1,6 +1,6 @@
 # Exercise 4: Set up a dev server
 
-You sure have noticed that the developer experience (#DX) until now is not being awesome enough. Let's try to improve it with some arrangements to your environment. 
+You sure have noticed that the developer experience (#DX) until now is not being awesome enough. Let's try to improve it with some arrangements to your environment.
 
 First of all, you'll feel more confortable with a local dev server to serve your bundle files, and to generate automatically a new bundle after every change in the source files... don't you? Go for it:
 - First of all, install the packages needed. Type in your terminal:
@@ -19,16 +19,16 @@ Webpack dev server is very similar to other tools like *LiveReload* or *Browsers
 
 It's a good idea to configure webpack dev server as a script in your `package.json` file:
 
-```
+```javascript
 ...
-"scripts": {
+'scripts': {
   "start": "webpack-dev-server"
 },
 ...
 ```
 
 And let the `webpack.config.js` file for setting the configuration:
-```
+```javascript
 ...
 var webpack = require('webpack');
 
@@ -37,7 +37,7 @@ var ROOT_PATH = path.resolve(__dirname);
 module.exports = {
   entry: {
     app: [
-      "webpack/hot/dev-server",
+      'webpack/hot/dev-server',
       path.resolve(ROOT_PATH, 'src/entry')
     ]
   },
@@ -59,4 +59,4 @@ You can now run in your terminal:
 ```
 $ npm start
 ```
-And when the server starts, navigate to [http://localhost:4000/] to see the results.
+And when the server starts, navigate to [http://localhost:4000/](http://localhost:4000/) to see the results.
