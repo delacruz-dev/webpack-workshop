@@ -60,3 +60,65 @@ You can now run in your terminal:
 $ npm start
 ```
 And when the server starts, navigate to [http://localhost:4000/] to see the results.
+
+## Configuring preloaders
+You may want to trigger some behavior before trying to generate the bundle. For example, execute a linting tool like ESLint. Webpack allows you to do it with the `preLoaders` section in its config file. First, install the node modules needed:
+```
+npm install eslint eslint-loader eslint-plugin-react babel-eslint --save-dev
+```
+Then, add a *.eslintrc* file with your desired linting rules. For example:
+
+```javascript
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "new-cap": 0,
+    "strict": 0,
+    "no-underscore-dangle": 0,
+    "no-use-before-define": 0,
+    "eol-last": 0,
+    "quotes": [2, "single"],
+    "react/jsx-boolean-value": 1,
+    "react/jsx-quotes": 1,
+    "react/jsx-no-undef": 1,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-multi-comp": 1,
+    "react/no-unknown-property": 1,
+    "react/react-in-jsx-scope": 1,
+    "react/self-closing-comp": 1
+  }
+}
+
+```
+After that, you can configure the `preLoaders` section in the `webpack.config.js` file:
+```javascript
+module.exports = merge(common, {
+    ...
+    module: {
+      preLoaders: [
+        {
+          test: /\.jsx?$/,
+          // we are using `eslint-loader` explicitly since
+          // we have ESLint module installed. This way we
+          // can be certain that it uses the right loader
+          loader: 'eslint-loader',
+          include: path.resolve(ROOT_PATH, 'src')
+        }
+      ]
+    },
+    output: {...},
+    ...
+  });
+}
+```
+Now, if you try to generate a bundle and break one of the linting rules, it will fail. Try it!
