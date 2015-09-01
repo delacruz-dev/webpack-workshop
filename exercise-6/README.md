@@ -1,1 +1,1 @@
-# Exercise 6: Making the configuration extensible
+# Exercise 7: Linting
