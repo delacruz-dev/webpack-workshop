@@ -29,7 +29,7 @@ You can configure special behavior when loading different file types using the r
 $ npm install css-loader style-loader --save-dev
 ```
 
-- Edit the `webpack.config.js`file and add the configuration settings for loading css:
+- Edit the `webpack.config.js` file and add the configuration settings for loading css:
 
 ```javascript
 module.exports = {
