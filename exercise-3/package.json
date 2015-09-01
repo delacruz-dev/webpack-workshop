@@ -4,7 +4,6 @@
   "description": "You sure have noticed that the developer experience (#DX) until now is not being awesome enough. Let's try to improve it with some arrangements to your environment.",
   "main": "build/bundle.js",
   "scripts": {
-    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -21,7 +21,7 @@ module.exports = {
     ]
   },
   plugins: [new HtmlwebpackPlugin({
-      title: 'Exercise 4'
+      title: 'Exercise 3'
     })
   ]
 };
