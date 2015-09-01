@@ -1,12 +1,5 @@
-NOTE: Be sure to have Node.JS installed.
+# Exercise 1: Basic bundling
 
-# Installation
-To install it webpack globally, open a new terminal and type:
-```
-$ npm install webpack -g
-```
-
-# Exercise 1:
 - Create a new file with some `Hello world` stuff in plain javascript syntax. For example:
 ```
 console.log("hello, world!");
@@ -42,4 +35,3 @@ chunk    {0} bundle.js (main) 28 bytes [rendered]
 - Let's try it in a browser. Create a html file and add a reference to the generated `bundle.js` file.
 - Change the `console.log`sentence with a `document.write`to print the message in the DOM and generate the bundle again.
 - Open the html file in a browser and enjoy your first hello world bundle with webpack!
-- Commit your changes
