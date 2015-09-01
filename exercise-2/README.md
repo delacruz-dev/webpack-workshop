@@ -18,8 +18,7 @@ Now you can just run:
 ```
 $ webpack
 ```
-
-And the new bundle will be generated according to the configuration set in your file.
+Webpack will read the file and look for the entry file specified, and then generate an output file with the resulting bundle.
 
 ## Add your first loader
 You can configure special behavior when loading different file types using the require syntax. In order to do so, webpack uses the concept of *loaders*. We'll add a new loader for .css files.
@@ -51,14 +50,11 @@ module.exports = {
 ```
 require('style.css');
 ```
-- Generate the bundle again:
-```
-$ webpack
-```
-- Open the html file in your browser. You should see your styles applied.
+- Generate the bundle again and open the html file in your browser. You should see your styles applied.
 
 As you can see, the output file generates only a bundle.js with the css styles embedded. You may be ok with that, since the style is just a part of the behaviour (*blink*) but you may also want to bundle the styles separatedly. Let's do that in the next step:
-- Install the Extract Text Plugin:
+
+- Install the Extract Text Plugin (https://github.com/webpack/extract-text-webpack-plugin):
 ```
 $ npm install --save-dev extract-text-webpack-plugin
 ```
@@ -118,5 +114,29 @@ Or, to extract it to a separate file with the rest of the style files:
 ```
 require('./style.scss');
 ```
-TODO: INCLUDE, EXCLUDE IN LOADER
+## Apply code transformation
+With webpack and Babel (https://babeljs.io/), you can safely write your code in ECMAScript 2015 and apply a transformation in bundle time. First of all, install babel:
+```
+$ npm install babel-loader --save-dev
+```
+Add the corresponding loader to your configuration file:
+```javascript
+{
+    test: /\.jsx?$/,
+    exclude: /(node_modules|bower_components)/,
+    loader: 'babel'
+}
+```
+Now you can transform your code to ES6 syntax or use React JSX, since Babel will transpile it to ES5. Change the files of the folder to ES6:
+- *entry.js*
+```javascript
+import bye from './bye';
+import './style.css';
+import './style.scss';
 
+document.write(bye);
+```
+- *bye.js*
+```javascript
+export default 'bye, world!';
+```
