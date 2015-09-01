@@ -4,12 +4,13 @@ Instead of typing commands in console or having a task file, webpack relies on a
 
 - Create a new file `webpack.config.js`
 - Write the following configuration:
-```
+
+```javascript
 module.exports = {
-    entry: "./entry.js",
+    entry: './entry.js',
     output: {
         path: __dirname,
-        filename: "bundle.js"
+        filename: 'bundle.js'
     }
 };
 ```
@@ -29,20 +30,22 @@ $ npm install css-loader style-loader --save-dev
 ```
 
 - Edit the `webpack.config.js`file and add the configuration settings for loading css:
-```
+
+```javascript
 module.exports = {
-    entry: "./entry.js",
+    entry: './entry.js',
     output: {
         path: __dirname,
-        filename: "bundle.js"
+        filename: 'bundle.js'
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: "style!css" }
+            { test: /\.css$/, loader: 'style!css' }
         ]
     }
 };
 ```
+
 - Add a new `style.css` file and apply some random styles to the html document.
 - Edit the `entry.js` file and import your style.css file:
 ```
@@ -60,28 +63,30 @@ As you can see, the output file generates only a bundle.js with the css styles e
 $ npm install --save-dev extract-text-webpack-plugin
 ```
 - Change your `webpack.config.js` file to add the newly installed plugin module and its configuration:
-```
+
+```javascript
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: "./entry.js",
+    entry: './entry.js',
     output: {
         path: __dirname,
-        filename: "bundle.js"
+        filename: 'bundle.js'
     },
     module: {
         loaders: [
-            { 
+            {
               test: /\.css$/,
-              loader: ExtractTextPlugin.extract("style-loader", "css-loader") 
+              loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin("bundle.css")
+        new ExtractTextPlugin('bundle.css')
     ]
 };
 ```
+
 - Don't forget to add the reference to the new bundle.css file in your html:
 ```
   <link href="./bundle.css" media="all" rel="stylesheet" type="text/css">
@@ -92,19 +97,23 @@ Do you want to use SASS or another compile-to-css language? no problem, you just
 $ npm i --save-dev sass-loader
 ```
 And add the following loader to the config file:
-```
+
+```javascript
 {
     test: /\.scss$/,
     loader: 'style!css!sass'
 }
 ```
+
 Or, to extract it to a separate file with the rest of the style files:
-```
+
+```javascript
 {
     test: /\.scss$/,
-    loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
 }
 ```
+
 - Next, create a .scss file with some new styles and require it in the `entry.js` file:
 ```
 require('./style.scss');
