@@ -2,7 +2,7 @@
 
 - Create a new file with some `Hello world` stuff in plain javascript syntax. For example:
 ```
-console.log("hello, world!");
+console.log('hello, world!');
 ```
 - Save the file as `entry.js`
 - Run:
@@ -11,7 +11,7 @@ $ node entry.js
 ```
 - Now let's create another file, but as a module:
 ```
-module.exports = "bye, world!";
+module.exports = 'bye, world!';
 ```
 - Then, edit the `entry.js` file and import the newly created module as follows:
 ```
@@ -33,5 +33,13 @@ chunk    {0} bundle.js (main) 28 bytes [rendered]
     [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes {0} [built]
 ```
 - Let's try it in a browser. Create a html file and add a reference to the generated `bundle.js` file.
-- Change the `console.log`sentence with a `document.write`to print the message in the DOM and generate the bundle again.
+- Change the `console.log('Hello world')`sentence fot
+
+```javascript
+var element = document.createElement('h3');
+element.innerHTML = 'Hello world';
+document.appendChild(element);
+```
+
+to print the message in the DOM and generate the bundle again.
 - Open the html file in a browser and enjoy your first hello world bundle with webpack!
