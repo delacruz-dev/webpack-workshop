@@ -121,4 +121,4 @@ module.exports = merge(common, {
   });
 }
 ```
-Now, if you try to generate a bundle and break one of the linting rules, it will fail. Try it!
+Now, if you generate a bundle and break one of the linting rules, it will fail. Try it!
