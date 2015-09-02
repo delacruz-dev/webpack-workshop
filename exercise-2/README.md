@@ -48,7 +48,7 @@ module.exports = {
 - Add a new `style.css` file and apply some random styles to the html document.
 - Edit the `entry.js` file and import your style.css file:
 ```
-require('style.css');
+require('./style.css');
 ```
 - Generate the bundle again and open the html file in your browser. You should see your styles applied.
 

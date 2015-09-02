@@ -59,7 +59,7 @@ You can now run in your terminal:
 ```
 $ npm start
 ```
-And when the server starts, navigate to [http://localhost:4000/] to see the results.
+And when the server starts, navigate to http://localhost:4000/ to see the results.
 
 ## Configuring preloaders
 You may want to trigger some behavior before trying to generate the bundle. For example, execute a linting tool like ESLint. Webpack allows you to do it with the `preLoaders` section in its config file. First, install the node modules needed:

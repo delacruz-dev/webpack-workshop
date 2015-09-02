@@ -38,7 +38,7 @@ chunk    {0} bundle.js (main) 28 bytes [rendered]
 ```javascript
 var element = document.createElement('h3');
 element.innerHTML = bye;
-document.appendChild(element);
+document.body.appendChild(element);
 ```
 * Generate the bundle again
 * Open the html file in a browser and enjoy your first hello world bundle with webpack!
