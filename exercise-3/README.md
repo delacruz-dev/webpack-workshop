@@ -46,7 +46,6 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     inline: true,
-    progress: ,
     port: 4000
   },
   plugins: [
