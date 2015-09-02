@@ -1,5 +1,5 @@
 import component from './component.js';
 
-const app = document.createElement('div');
-document.body.appendChild(app);
-app.appendChild(component());
+var element = document.createElement('h3');
+element.innerHTML = bye;
+document.body.appendChild(element);
