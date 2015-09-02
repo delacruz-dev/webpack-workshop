@@ -1,3 +1,7 @@
 var bye = require('./bye.js');
 
-document.write(bye);
+const element = document.createElement('h1');
+
+element.innerHTML = bye;
+
+return element;
