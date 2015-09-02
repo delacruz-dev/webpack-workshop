@@ -1,66 +1,30 @@
 {
-  "name": "demo-exercise-4",
+  "name": "example_app",
   "version": "0.0.0",
-  "main": "dist/",
+  "description": "Webpack demo app",
+  "main": "index.js",
   "scripts": {
-    "clean:dist": "rm -Rf ./dist/*",
-
-    "predist": "npm run clean:dist -s",
-    "dist": "npm run dist:scripts && npm run dist:styles",
-    "dist:scripts": "babel src --out-dir dist",
-    "dist:styles": "node-sass src/index.scss dist/demo-exercise-4.css --importer ./scripts/importer.js",
-    "postdist:styles": "cp dist/demo-exercise-4.css dist/_demo-exercise-4.scss",
-    "prepublish": "npm run dist",
-
-    "lint": "npm run lint:jscs && npm run lint:eslint && npm run lint:sass",
-    "lint:jscs": "cat ./{src,test}/**/*.{js,jsx} | jscs",
-    "lint:eslint": "eslint --ext=\".js\" --ext=\".jsx\" src/",
-    "lint:sass": "scss-lint src/",
-
-    "test": "mocha --compilers js:babel/register --recursive",
-    "test:watch": "npm run test -- -w test src --watch-extensions jsx",
-
-    "dev": "npm run dev:open && npm run dev:serve",
-    "dev:serve": "webpack-dev-server --devtool eval --progress --colors --content-base docs/",
-    "dev:open": "opener http://localhost:8080",
-
-    "predoc": "webpack --config webpack.doc.config.js",
-    "doc": "npm run doc:build",
-    "doc:build": "gh-pages -d docs"
+    "start": "webpack-dev-server"
   },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "pre-commit": [
-    "lint",
-    "test"
+  "keywords": [
+    "webpack",
+    "demo"
   ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^5.8.19",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.15.5",
+    "html-webpack-plugin": "^1.6.0",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.8",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1",
+    "webpack-merge": "^0.1.2"
+  },
   "dependencies": {
     "react": "^0.13.3"
-  },
-  "devDependencies": {
-    "@schibstedspain/frontend-pre-commit-rules": "latest",
-    "@schibstedspain/theme-basic": "latest",
-    "babel": "^5.5.6",
-    "babel-eslint": "~3.1.14",
-    "babel-jscs": "^1.0.1",
-    "babel-loader": "^5.1.4",
-    "css-loader": "^0.15.3",
-    "eslint": "~0.23.0",
-    "eslint-plugin-react": "~2.5.0",
-    "expect": "^1.6.0",
-    "gh-pages": "^0.3.1",
-    "jscs": "~1.13.1",
-    "lodash": "~3.9.3",
-    "mocha": "^2.2.5",
-    "node-libs-browser": "^0.5.2",
-    "node-sass": "^3.1.2",
-    "opener": "^1.4.1",
-    "react-hot-loader": "^1.2.7",
-    "sass-loader": "^1.0.2",
-    "style-loader": "^0.12.3",
-    "webpack": "^1.9.11",
-    "webpack-dev-server": "^1.9.0"
   }
 }

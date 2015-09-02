@@ -1,33 +1,53 @@
 var path = require('path');
+var HtmlwebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var merge = require('webpack-merge');
 
-module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8080',
-    'webpack/hot/only-dev-server',
-    path.resolve(__dirname, 'docs/index.jsx')
-  ],
+var TARGET = process.env.npm_lifecycle_event;
+var ROOT_PATH = path.resolve(__dirname);
+
+var common = {
+  entry: path.resolve(ROOT_PATH, 'app/main.jsx'),
   output: {
-    path: path.resolve(__dirname, 'docs/dist'),
-    filename: 'dist/index.js'
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
+    path: path.resolve(ROOT_PATH, 'build'),
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        loaders: ['react-hot-loader', 'babel-loader'],
-        exclude: path.join(__dirname, 'node_modules')
-      },
-      {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: path.resolve(ROOT_PATH, 'app')
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new HtmlwebpackPlugin({
+      title: 'Example app'
+    })
   ]
 };
+
+if(TARGET === 'start' || !TARGET) {
+  module.exports = merge(common, {
+    devtool: 'eval-source-map',
+    module: {
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          loaders: ['react-hot', 'babel'],
+          include: path.resolve(ROOT_PATH, 'app')
+        }
+      ]
+    },
+    devServer: {
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      progress: true
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ]
+  });
+}
