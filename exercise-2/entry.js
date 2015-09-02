@@ -1,7 +1,5 @@
-var bye = require('./bye.js');
+var component = require('./bye.js');
 
-const element = document.createElement('h1');
-
-element.innerHTML = bye;
-
-return element;
+const app = document.createElement('div');
+document.body.appendChild(app);
+app.appendChild(component());
