@@ -10,6 +10,7 @@ npm install
 - Install `webpack-dev-server` globally:
 ```
 $ npm install webpack-dev-server -g
+$ npm install html-webpack-plugin --save-dev
 ```
 Then, start it with:
 ```
