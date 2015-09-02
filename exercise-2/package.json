@@ -1,0 +1,11 @@
+{
+  "name": "exercise-2",
+  "version": "1.0.0",
+  "description": "Instead of typing commands in console or having a task file, webpack relies on a configuration file. Let's create our first one:",
+  "main": "entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
